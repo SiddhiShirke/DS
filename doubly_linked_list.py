@@ -1,3 +1,13 @@
+'''
+Functions implemented are
+add_front(): Adds a node in beginning of the list
+add_last() : Adds a node in the end of the list
+delete_front () :Deletes a node in the beginning of the list
+delete_last() :Deletes a node in the end of the list
+remove_between_list : Deletes a node in between the list
+back_traverse()
+'''
+
 class Node:
     def __init__(self, data,next=None):
         self.prev = None
