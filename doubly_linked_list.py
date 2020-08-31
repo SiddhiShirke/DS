@@ -138,4 +138,4 @@ obj.delete_last()
 obj.remove_between_list(5)
 obj.display()
 obj.back_traverse()
-obj.display
+obj.display()
