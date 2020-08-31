@@ -120,7 +120,6 @@ class Node:
             
         
 obj = Node(1)
-
 obj.add_front(1)
 obj.add_front(2)
 obj.add_front(3)
