@@ -108,14 +108,16 @@ class Node:
 
                 
     def back_traverse(self):
-        last_obj = self.get_tail()
-        counter = self.size
-        while (counter == 0 and last_obj != None ):
-            last_obj = last_obj.prev
-            counter -= 1
-            print(last_obj.data)
-        
-        return last_obj
+        first = self.head
+        second = first.next
+        first.next = None
+        first.prev = second
+        while second is not None:
+            second.prev =second.next
+            second.next =first
+            first=second
+            second = second.prev
+        self.head = first
         
             
         
@@ -136,3 +138,4 @@ obj.delete_last()
 obj.remove_between_list(5)
 obj.display()
 obj.back_traverse()
+obj.display
