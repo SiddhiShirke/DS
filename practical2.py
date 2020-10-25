@@ -93,20 +93,48 @@ class Node:
             self.size -= 1
 
                 
-    def back_traverse(self):
-        last_obj = self.get_tail()
-        counter = self.size
-        while (counter == 0 and last_obj != None ):
-            last_obj = last_obj.prev
-            counter -= 1
-            print(last_obj.data ,end=" <<")
+    def reverse_list(self):
+        first = self.head
+        second = first.next
+        first.next = None
+        first.prev = second
+        while second is not None:
+            second.prev =second.next
+            second.next =first
+            first=second
+            second = second.prev
+        self.head = first
         
-        return last_obj
-        
+    def search (self,search_value):
+            index = 0 
+            while (index < self.size):
+                value = self.get_node_at(index)
+                
+                if value.data == search_value:
+                    print(value.data, "  value found at " , " location   ", str(index) )
+                    return True
+                index += 1
+            print("Not Found")
+            return False
+    def merge(self,linkedlist_value):
+        if self.size > 0:
+            last_node = self.get_node_at(self.size-1)
+            last_node.next = linkedlist_value.head
+            self.size = self.size + linkedlist_value.size
             
+        else:
+            self.head = linkedlist_value.head
+            self.size = linkedlist_value.size        
+        
+
         
 obj = Node(1)
-
+obj1 = Node(1)
+obj1.add_front(12)
+obj1.add_front(11)
+obj1.add_front(10)
+print("Linked List 1")
+obj1.display()
 obj.add_front(1)
 obj.add_front(2)
 obj.add_front(3)
@@ -128,5 +156,13 @@ obj.delete_last()
 obj.display()
 print("Delete 5th element ")
 obj.remove_between_list(5)
+obj.display()
+obj.search(2)
+obj.display()
+print("Reversing the list")
+obj.reverse_list()
+obj.display()
+print("Merging two linked list")
+obj.merge(obj1)
 obj.display()
 
